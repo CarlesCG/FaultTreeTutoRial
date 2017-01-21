@@ -1,5 +1,12 @@
-## 
+## Initial ignore 
 *.html
+.Rproj.user
+.Rhistory
+.RData
+_publish.R
+_book
+_bookdown_files
+rsconnect
 
 # History files
 .Rhistory

@@ -1,29 +1,31 @@
-# Introduction 
+# Introduction {#intro}
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```{r setup_intro, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=TRUE, cache = TRUE)
 ```
 
-Getting started with FaultTree on R
-This introduction will cover installation of R and the FaultTree package. R has been selected as the container environment for this open source Fault Tree Analysis software. R is an excellent prototyping environment, although it is not known for its user friendliness.  This introduction will hopefully get tentative users off to a running start.  Although R is multi-platform environment, this introduction will be made from a Windows user perspective. 
-
+## Getting started with FaultTree on R  
+This introduction will cover installation of R and the FaultTree package. R has been selected as the container environment for this open source Fault Tree Analysis software. R is an excellent prototyping environment, although it is not known for its user friendliness.  This introduction will hopefully get tentative users off to a running start.  Although R is multi-platform environment, this introduction will be made from a Windows user perspective.
+ 
 A Windows installer for the R environment is available for free download starting at:  
 https://www.r-project.org/
 
-Select the download link, then choose a mirror (the first selection always works for me). Here you will view the download links for the three supported operating systems. It does not matter which version of Windows you are using. On a 32-bit installation you will get a 32-bit R system.  On a 64-bit system you will get both the 32-bit and the 64-bit installation. Don't worry it doesn't really matter which one you use. We are only concerned with a base installation, click on the 'install R for the first time' link.
-
-It is fine to install with default conditions, however, this creates an MDI application where multiple instances can run in a single container.  I find this uncomfortable and prefer the SDI format. Want to try again? Uninstall through the ControlPanel and re-run the installer. This time select a 'custom installation', which will give you a chance to install the SDI format. All the other defaults are fine.
+Select the download link, then choose a mirror (the first selection always works for me). Here you will view the download links for the three supported operating systems. It does not matter which version of Windows you are using. On a 32-bit installation you will get a 32-bit R system.  On a 64-bit system you will get both the 32-bit and the 64-bit installation. Don’t worry it doesn’t really matter which one you use. We are only concerned with a base installation, click on the ‘install R for the first time’ link.
+ 
+It is fine to install with default conditions, however, this creates an MDI application where multiple instances can run in a single container.  I find this uncomfortable and prefer the SDI format. Want to try again? Uninstall through the ControlPanel and re-run the installer. This time select a ‘custom installation’, which will give you a chance to install the SDI format. All the other defaults are fine.
+ 
 I should mention here that there is a further developer environment that some prefer called R Studio.  This application gives an unabashed look and feel of MatLab to R. This is also available as a free download at :
 https://www.rstudio.com/products/RStudio/
 
-The remainder of this introduction will refer to the simplest R SDI installation. Really we don't need to know much about the R programming language to use FaultTree.  Most people find R to have a very steep learning curve, largely due to the stark terminal window that it opens up to.  This introduction hopes to guide any first-time user to success.
+The remainder of this introduction will refer to the simplest R SDI installation. Really we don’t need to know much about the R programming language to use FaultTree.  Most people find R to have a very steep learning curve, largely due to the stark terminal window that it opens up to.  This introduction hopes to guide any first-time user to success.
+ 
 FaultTree is a package that must be loaded into R. The package is hosted at R-Forge :
 https://r-forge.r-project.org/
-From that location navigation would be required by search of Project -  ftree.  From that location one must select the R Packages link just below the Fault Tree and Event Tree Analysis title button. Or for those in a rush, just load the following URL:
+From that location navigation would be required by search of Project –  ftree.  From that location one must select the R Packages link just below the Fault Tree and Event Tree Analysis title button. Or for those in a rush, just load the following URL:
 https://r-forge.r-project.org/R/?group_id=2125
-Yes, there is more than one package addressed here. We of course want FaultTree.  There are two ways to load this package into your R installation I will walk through both. You can download the .zip file next to the Windows logo. But, do not unzip this as one might expect! Rather, we will open this using the R environment. Run an R instance - as administrator. This is usually accomplished by right clicking on the icon and selecting 'Run as administrator'. I prefer this since only the administrator can load the package into the main R installation, rather than a separate user library. This is a bit of Linux legacy, but we now have users separate from administrator on Windows since Windows 7. Now, in the R Console select the Packages menu item.  Then at the bottom of the dropdown menu select 'Install package(s) from local zip files...'   Navigate to the location of the downloaded zip from R-forge and open it in R. You should see the following confirmation in the R Console:
+Yes, there is more than one package addressed here. We of course want FaultTree.  There are two ways to load this package into your R installation I will walk through both. You can download the .zip file next to the Windows logo. But, do not unzip this as one might expect! Rather, we will open this using the R environment. Run an R instance – as administrator. This is usually accomplished by right clicking on the icon and selecting ‘Run as administrator’. I prefer this since only the administrator can load the package into the main R installation, rather than a separate user library. This is a bit of Linux legacy, but we now have users separate from administrator on Windows since Windows 7. Now, in the R Console select the Packages menu item.  Then at the bottom of the dropdown menu select ‘Install package(s) from local zip files…’   Navigate to the location of the downloaded zip from R-forge and open it in R. You should see the following confirmation in the R Console:
 
-```{r}
+```{r, eval=FALSE}
 utils:::menuInstallLocal()
 # package ‘FaultTree’ successfully unpacked and MD5 sums checked
 ```
@@ -34,15 +36,21 @@ Before continuing, I will mention perhaps an easier method of installation. R-fo
 install.packages("FaultTree", repos="http://R-Forge.R-project.org")
 directly into the R Console.  
 
-```{r}
+```{r, eval=FALSE}
 install.packages("FaultTree", repos="http://R-Forge.R-project.org")
 ```
 
 
 [I just tried this with R version 3.3.1 and it did not work because R-Forge had not gotten around to updating the package build (at version 0.0.9) since R version 3.3.0 . So I got a warning (failure) message for this reason. However the earlier zip method works on all versions.]
 
-This installation operation is only performed once per version of the package.  From this point we can use the FaultTree package on each session of R by just mounting the library, which has already been installed in your local file system.  This is done by the simple command line:
+Alternatively install from GitHub repository: 
+```{r, message=FALSE}
+devtools::install_github("CarlesCG/FaultTree")
+```
 
+This installation operation is only performed once per version of the package.  From this point we can use the FaultTree package on each session of R by just mounting the library, which has already been installed in your local file system.  This is done by the simple command line directly into the R Console:
+
+## Load FaulTree package
 ```{r}
 library(FaultTree)
 ```
@@ -77,14 +85,11 @@ In this case all mean time to failure (mttf) and mean time to repair (mttr) valu
 It is of course more pleasing to view the fault tree as a graphic, and in this regard the FaultTree package will not disappoint.  Just add the following lines after the executed script above:
 
 ```{r}
-tree2html(tree1, write_file=TRUE)
+ftree2html(tree1, write_file=TRUE)
+```
+
+Now the image below should appear in your default browser.
+```{r}
 browseURL('tree1.html')
 ```
 
-![](./www/ftree1.jpg)
-
-This set of commands will open the default browser with a graphic of the fault tree.  The gates of the tree can be expanded and contracted by mouse click.  The graphic can be panned in the view screen (like a map) and zoomed with the mouse scroll wheel. The calculated output parameters are displayed around the tree symbol and in the case of latent component entries input parameters of Tao (exposure, or interval time) and Po (Probability of failure at time zero) are also displayed.  This display is intended to permit a re-creation of the tree from just an image of the graphic output.  
-
-In this example we see a basic fault tree analysis. Here we are considering the frequency of total power outage on a site that normally receives power from external sources, but has a redundant set of backup generators to assure power supply. The analysis suggests that if external power interrupts only once per year (a fairly secure single supply) a total power loss due to neither backup generator functioning as expected will occur once in 1/0.00022234 or 4500 years.
-Maybe this sounds extraordinary, but let's assume you manage 100 hospitals with this power backup arrangement. Now you could expect to see such a serious undesired event perhaps once in a career.  In this case we expect the event to only exist until either external power is restored, or that Scotty fixes one of the emergency generators.  The Probability value represents the Unavailability of power over time.  Assuming that a single loss of power event may likely be life threatening to certain patients this Availability (1-Unavailability) in this case has little meaning.
-That is quite enough for an introduction. In subsequent sections we will discuss the preparation of fault tree inputs and the calculations that follow.

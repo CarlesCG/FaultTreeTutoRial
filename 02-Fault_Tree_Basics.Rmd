@@ -1,10 +1,11 @@
 # Fault Tree Basics 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```{r setup_basics, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
+library(FaultTree)
 ```
 
-This second introductory essay assumes the user has installed R and the FaultTree package. If this is not the case please refer to ‘Getting started with FaultTree on R’. This essay will examine a simple example in *Section 5.1 (page 55)* in *‘Fault Tree Hand book with Aerospace Applications’* published by NASA. This document is available for free download at:
+This second introductory essay assumes the user has installed R and the FaultTree package. If this is not the case please refer to ‘Getting started with FaultTree on R’. This essay will examine a simple example in *Section 5.1 (page 55)* in **‘Fault Tree Hand book with Aerospace Applications’** published by *NASA*. This document is available for free download at:
  
 [http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf](http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf)
  
@@ -22,7 +23,7 @@ nasa1<-ftree.make(type="or", name="no flow to", name2="Receiver")
 Notice that the character combination ‘<-' forming a sort of arrow is an assignment operator in R. An equals sign '=' would also work, but has not been used to distinguish it from argument assignment. This script line really hasn't done much yet, but a fault tree object has been created, named 'nasa1', as a dataframe in R. A dataframe can be viewed by just typing its name at the > prompt on the console:
  
  
-```{r, eval=FALSE}
+```{r}
 nasa1
 ```
 
