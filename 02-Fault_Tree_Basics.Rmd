@@ -5,13 +5,14 @@ knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 library(FaultTree)
 ```
 
-This second introductory essay assumes the user has installed R and the FaultTree package. If this is not the case please refer to ‘Getting started with FaultTree on R’. This essay will examine a simple example in *Section 5.1 (page 55)* in **‘Fault Tree Hand book with Aerospace Applications’** published by *NASA*. This document is available for free download at:
- 
-[http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf](http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf)
+This second introductory essay assumes the user has installed R and the FaultTree package. If this is not the case please refer to ‘Getting started with FaultTree on R’. This essay will examine a simple example in *Section 5.1 (page 55)* in **‘Fault Tree Hand book with Aerospace Applications’** published by *NASA*. This document is available for free download at [http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf](http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf)
+
+![](./www/02-NASA_pdf_cover.jpg) 
+
  
 In this example we are encouraged to think of water flowing through two valves A and B. It could be more exciting to think of it as rocket fuel from Fuel Storage passing through pump A and valve B to a Rocket Engine.
  
-![](./www/NASA5.1.jpg)
+![](./www/02-NASA5.1.jpg)
 
 In the first instance we want to consider that the undesired event is ‘no flow to the Receiver’. This tree will be named ‘nasa1’ and the first line of our FaultTree script can be entered into the console as:
  
