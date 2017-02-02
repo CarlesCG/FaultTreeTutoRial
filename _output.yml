@@ -1,0 +1,24 @@
+bookdown::gitbook:
+  css: css/style.css
+  split_by: chapter
+  config:
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">FaultTree Tutorial</a></li>
+      after: |
+        <li><a href="http://www.openreliability.org" target="blank">Openreliability.org</a></li>
+        <li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+    download: no
+    edit: https://github.com/CarlesCG/FaulttReeTutoRial/edit/master/%s
+    sharing:
+      github: yes
+      facebook: no
+      all: no
+bookdown::html_chapters:
+  css: [css/style.css, css/toc.css]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: pdflatex
+  keep_tex: yes
