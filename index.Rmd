@@ -1,34 +1,42 @@
 ---
-title: "FaultTree package tutorial"
-author: David J. Silkworth
+title: "Tutorial: FaultTree Package"
+author: ["David J. Silkworth"]
 site: bookdown::bookdown_site
-output:
-  bookdown::gitbook: default
 documentclass: book
-description: "Tutorial for the FaultTree package from openreliability.org"
+bibliography: [packages.bib]
+description: "Tutorial for the FaultTree package from www.openreliability.org"
 cover-image: "www/cover.jpg"
+knit: "bookdown::render_book"
+github-repo: CarlesCG/FaulttReeTutoRial
 ---
 
 
-# Prerequisites
-  * Original content [Openreliability.org](http://www.openreliability.org/fault-tree-analysis-on-r/)  
-  * Bookdown editing: [CarlesCG](https://github.com/CarlesCG)  
-
-This is a _sample_ book  written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
-
-For now, you have to install the development versions of **bookdown** from Github:
-
-```{r eval=FALSE}
-devtools::install_github("rstudio/bookdown")
+# Welcome To FaultTree Tutorial {-}
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("www/cover.jpg")
 ```
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
 
-To compile this example to PDF, you need to install XeLaTeX.
+This is the [online version]() for the R `FaultTree` package tutorial available at [openreliability.org](www.openreliability.org).  
+Pull requests and general comments are welcome.
 
-```{r include=TRUE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+
+**Author**  
+
+  * [David J.Silkworth](https://github.com/jto888)  
+  * bookdown editing by [Carles CG](https://github.com/CarlesCG)    
+  
+
+**References**  
+
+  * The package can be found [in GitHub](https://github.com/jto888/FaultTree).    
+  * The original tutorial can be found [at openreliability.org](http://www.openreliability.org/fault-tree-analysis-on-r/)  
+  
+```{block, note-text, type='rmdtip'}
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+http://www.gnu.org/licenses/.
 ```
+
