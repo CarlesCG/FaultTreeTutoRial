@@ -1,32 +1,32 @@
-# Latent Component Events
+# Latent Component Events {#latent-events}
 
-```{r setup_basics, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 library(FaultTree)
 ```
 
 The identification of latency is perhaps one of the most valuable contributions to safety and reliability engineering. Latent component events are characterized by hidden failures (or faults) which represent conditions under which additional failures will combine to propagate system failure, or undesired events. Similar to exposure time with the non-repairable model, latent events have exposure over an interval between inspections accompanied by any needed repair. The longer the interval, the higher the probability that a latent component will be in a failed state. Scheduling and even designing a system to permit inspection, proof or validation tests becomes key to risk reduction.
  
-An example to be studied for this topic is presented on page 24 of the [DOE Handbook ``[for]`` Chemical Process Hazards Analysis](http://energy.gov/sites/prod/files/2013/06/f1/DOE-HDBK-1100-2004.pdf).    
+An example to be studied for this topic is presented on *Page 24* of the [DOE Handbook ``[for]`` Chemical Process Hazards Analysis](http://energy.gov/sites/prod/files/2013/06/f1/DOE-HDBK-1100-2004.pdf).    
 
-![](./www/07-DOE_handbook.jpg)
+<center> ![](./www/07-DOE_handbook.jpg) </center> 
 
 In this study the undesired event is HF Vaporizer Rupture. The fault tree studied here will be embellished with hypothetical data and developed in a bit more detail than the milquetoast version provided in the handbook. Although not a factor in the 1992 release event at Oakridge, nor in the text of the handbook, this example study will consider the combination of rupture disk and relief valve, PRV4, in more detail.
 
 
-![](./www/06-hf_vaporizer.jpg) 
+<center> ![](./www/06-hf_vaporizer.jpg) </center> 
 
 This combination of relief devices is required in such corrosive service as HF gas. If the relief valve were not isolated in this way it would be subject to corrosion due to minute leakage through the safety valve seat permitting HF vapor to contact moist ambient air. However this required feature will add risk to the performance of the pressure relief function. In particular it is somewhat likely that the rupture disk may form a pin-hole leak that will pressurize the piping inside V28, PRV4 and the rupture disk. Thus rendering the rupture disk incapable of performing its required function upon process pressure increase.
  
 In this case latency is observed in the primary function of the relief valve, minute leakage in the rupture disk, the indication ability of the pressure gauge, and in the manual position of the isolation valves V-20 and V-21. three inspection protocols have been envisioned for this system In order to mitigate the effects of the potentially hidden flaws as follows:
 
-**rv_test**
+  * **rv_test**
 This is a rather expensive test that must be done while the system has been decommissioned, likely for other extensive maintenance. Relief valve PRV4 will be replaced with a new or reconditioned valve. The old valve will be sent out for bench test and any required reconditioning. Upon restoration of the system a pi_test and walkby will also be completed.
  
-**pi_test**
+  * **pi_test**
 This test involves applying a modest pressure of nitrogen through a connection at V28. During this test verification is made of the pressure gage integrity. It is also likely that some disposable testing device might be used to verify that no leakage of HF gas is occurring through the rupture disk. Upon completion of a pi_test a walkby will also be completed.
  
-**walk-by**
+  * **walk-by**
 This easiest test requires no intervention on the system other than possible call for remediation. The operator/inspector will log the pressure indicated on the pressure gauge and make note of the position of the isolation valves V20 and V21.
  
 The expense of testing usually places a limit on frequency of tests. For this example it is first assumed that the rv_test is scheduled every 3 years. The pi_test is conducted annually and a monthly log is required from the operators from a walkby inspection.
@@ -81,10 +81,9 @@ Under the OR gate at node 14 two inhibit gates are used to distinguish two compl
  
 The key impact of latency is in the calculation of the probability of the failed state for the event. Similar to exposure time, the event may occur anywhere within the interval between inspections. The exact time of failure is unknown, however using the exponential function for the assumption of random failures, the most likely time of failure can be calculated. The probability of failed state is then assumed to occur from that point forward. This is called the fractional downtime calculation. The function used to determine this probability is dependent on the *fail rate*, `1/mttf` and *inspection interval* `T` as follows:
 
-1-1/((1/mttf)*T)*(1-exp(-(1/mttf)*T))
 
 
-$$1-\frac{1}{\frac{1}{mttf}*T}\times(1-e^{-\frac{1}{mttf}*T)})$$
+$$1-\frac{1}{\frac{1}{MTTF}*T}\times(1-e^{-\frac{1}{MTTF}*T)})$$
 
 In some systems the time required to repair or restore the failure after detection must still be accounted for as unavailable time. In other cases, there is a lingering probability that the component will still be failed after restoration. These, often small, probability values are additive to the latency probability calculation. The addLatent function has a pzero argument for assignment of this additional probability.
  

@@ -1,20 +1,28 @@
 # Introduction {#intro}
 
-```{r setup_intro, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval=TRUE, cache = TRUE)
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=TRUE, cache = TRUE, fig.align='center')
 ```
 
 ## Getting started with FaultTree on R  
 This introduction will cover installation of R and the FaultTree package. R has been selected as the container environment for this open source Fault Tree Analysis software. R is an excellent prototyping environment, although it is not known for its user friendliness.  This introduction will hopefully get tentative users off to a running start.  Although R is multi-platform environment, this introduction will be made from a Windows user perspective.
  
-A Windows installer for the R environment is available for free download starting at: https://www.r-project.org/
+![](./www/01-Rfundation.jpg)  
+
+A Windows installer for the R environment is available for free download starting at https://www.r-project.org/
 
 Select the download link, then choose a mirror (the first selection always works for me). Here you will view the download links for the three supported operating systems. It does not matter which version of Windows you are using. On a 32-bit installation you will get a 32-bit R system.  On a 64-bit system you will get both the 32-bit and the 64-bit installation. Don’t worry it doesn’t really matter which one you use. We are only concerned with a base installation, click on the ‘install R for the first time’ link.
  
 It is fine to install with default conditions, however, this creates an MDI application where multiple instances can run in a single container.  I find this uncomfortable and prefer the SDI format. Want to try again? Uninstall through the ControlPanel and re-run the installer. This time select a ‘custom installation’, which will give you a chance to install the SDI format. All the other defaults are fine.
  
-I should mention here that there is a further developer environment that some prefer called R Studio.  This application gives an unabashed look and feel of MatLab to R. This is also available as a free download at :
-https://www.rstudio.com/products/RStudio/
+```{r echo=FALSE}
+# Optional for the graphics
+# knitr::include_graphics("./www/01-rstudiologo.png")
+# <center><img src="./www/01-rstudiologo.png"></center>
+```
+<center> ![](./www/01-rstudiologo.png) </center>  
+
+I should mention here that there is a further developer environment that some prefer called R Studio.  This application gives an unabashed look and feel of MatLab to R. This is also available as a free download at https://www.rstudio.com/products/RStudio/  
 
 The remainder of this introduction will refer to the simplest R SDI installation. Really we don’t need to know much about the R programming language to use FaultTree.  Most people find R to have a very steep learning curve, largely due to the stark terminal window that it opens up to.  This introduction hopes to guide any first-time user to success.
  
@@ -40,7 +48,10 @@ install.packages("FaultTree", repos="http://R-Forge.R-project.org")
 ```
 
 
-> [I just tried this with R version 3.3.1 and it did not work because R-Forge had not gotten around to updating the package build (at version 0.0.9) since R version 3.3.0 . So I got a warning (failure) message for this reason. However the earlier zip method works on all versions.]
+```{block, type='rmdcaution'}
+I just tried this with R version 3.3.1 and it did not work because R-Forge had not gotten around to updating the package build (at version 0.0.9) since R version 3.3.0 . So I got a failure message for this reason. However the earlier zip method works on all versions.
+```
+
 
 Alternatively install from GitHub repository: 
 ```{r, message=FALSE}

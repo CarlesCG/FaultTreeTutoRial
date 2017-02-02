@@ -1,6 +1,6 @@
-# Repairable System Models
+# Repairable System Models {#repairable}
 
-```{r setup_basics, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 library(FaultTree)
 ```
@@ -13,7 +13,7 @@ To introduce this topic consider a hypothetical coolant pumping scenario. The un
  
 Both pumps are electric motor driven. The power supply is conditioned by a transformer and controlled by several breakers.
 
-![](./www/05-cooling_pumps.jpg) 
+<center> ![](./www/05-cooling_pumps.jpg) </center> 
 
 The following table summarizes the input parameters:
 

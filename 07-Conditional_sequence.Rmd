@@ -1,6 +1,6 @@
- # Conditional Sequence 
+# Conditional Sequence {#conditional-sequence}
 
-```{r setup_basics, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 library(FaultTree)
 ```
@@ -43,13 +43,17 @@ Systems with latency are more likely to generate conditions for propagation of u
  
 Consider a fictitious pressurized system with pressure controlled feed and pressure controlled venting as the only protection against overpressure.
 
-![](./www/07-conditional1.jpg)
+<center> ![](./www/07-conditional1.jpg) </center> 
 
 The following table summarizes the input parameters:
 ![](./www/07-input_table2.jpg)
 
-> For the next FaultTree model scripts the magrittr (mag-rit-tay) package will be used. Since this is an established package on the CRAN repository installation is rather straight forward. I would usually close any open R consoles in order to avoid any confusion. Then open one, as administrator, to execute menu selections Packages -> Install package(s). . . select the first mirror, then scroll down to magrittr. As with any package to use it in a session the library must be loaded. So, commands for library(magrittr) as well as library(FaultTree) will be required in any new R session.
-The magrittr package provides a short hand notation for passing the developing FaultTree object to successive script lines. The example code demonstrates this use. Note the definition of a new %>% operator permits successive representation of the object as a dot for the first argument in the function call following the %>% operator.
+```{block, type='rmdnote'}
+For the next FaultTree model scripts the magrittr (mag-rit-tay) package will be used. Since this is an established package on the CRAN repository installation is rather straight forward. I would usually close any open R consoles in order to avoid any confusion. Then open one, as administrator, to execute menu selections Packages -> Install package(s). . . select the first mirror, then scroll down to `magrittr`. As with any package to use it in a session the library must be loaded. So, commands for library(magrittr) as well as library(FaultTree) will be required in any new R session.  
+
+The magrittr package provides a short hand notation for passing the developing FaultTree object to successive script lines. The example code demonstrates this use. Note the definition of a new `%>%` operator permits successive representation of the object as a dot for the first argument in the function call following the `%>%` operator.
+```
+
 
 A simple fault tree is now generated for Surge Tank Overpressure Failure.
 ```{r}
@@ -75,7 +79,10 @@ browseURL("surgePRIORITY.html")
 ```
 
 
-> This script has rendered poorly in the code block, but it should copy and paste successfully. It is now expected that either text files as discussed in Fault Tree Basics or spreadsheet as discussed in the (pending) Appendix are being used by the reader to hold these developing scripts.
+```{block, type='rmdcaution'}
+This script has rendered poorly in the code block, but it should copy and paste successfully. It is now expected that either text files as discussed in Fault Tree Basics or spreadsheet as discussed in the (pending) Appendix are being used by the reader to hold these developing scripts.
+```
+
 
 Now the same tree can be re-created using an inhibit gate for the top event. Only the first two lines of the script ( after the library calls) need to be changed since the magrittr pipeline is used. The browseURL function cannot utilize the pipeline, so a graphical view has to be generated separately.
  
@@ -89,7 +96,8 @@ browseURL("surgeINHIBIT.html")
 ```
 
 Since the point of interest here is the difference between the two top gates a photoshoped image of these two collapsed trees is presented in one frame.
-![](./www/07-PriorityVSinhibit.jpg)
+<center> ![](./www/07-PriorityVSinhibit.jpg) </center> 
+
 Both top gates receive the same information from the feeding OR gates. The condition only passes a probability value. In the case of the PRIORITY gate this is because the default of reversible_cond = FALSE has been set. If the result of vent failure leads to vessel rupture, it makes no sense to pass on vent system repair information. Further, this irreversible PRIORITY gate has resolved its resulting event to be a pure demand with an output containing a fail rate result only.
  
 The INHIBIT gate simply applies the conditional percent of time on both Fail Rate and Probability of the combining event. All inhibited information from the combined event is passed upward even if it is irrelevant for the model under consideration. However, there is no difference in the final Fail Rate calculated output.

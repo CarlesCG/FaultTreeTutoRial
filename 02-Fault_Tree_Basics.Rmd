@@ -1,15 +1,14 @@
-# Fault Tree Basics 
+# Fault Tree Basics {#basics}
 
-```{r setup_basics, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 library(FaultTree)
 ```
 
-This second introductory essay assumes the user has installed R and the FaultTree package. If this is not the case please refer to ‘Getting started with FaultTree on R’. This essay will examine a simple example in *Section 5.1 (page 55)* in **‘Fault Tree Hand book with Aerospace Applications’** published by *NASA*. This document is available for free download at [http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf](http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf)
+This second introductory essay assumes the user has installed R and the FaultTree package. If this is not the case please refer to ‘Getting started with FaultTree on R’. This essay will examine a simple example in *Section 5.1 (page 55)* in **‘Fault Tree Hand book with Aerospace Applications’** published by *NASA*. This document  is available [for free download](http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf).
 
-![](./www/02-NASA_pdf_cover.jpg) 
+<center> ![](./www/02-NASA_pdf_cover.jpg) </center>  
 
- 
 In this example we are encouraged to think of water flowing through two valves A and B. It could be more exciting to think of it as rocket fuel from Fuel Storage passing through pump A and valve B to a Rocket Engine.
  
 ![](./www/02-NASA5.1.jpg)
@@ -128,7 +127,10 @@ ftree2html(nasa1a, write_file=TRUE)
 browseURL("nasa1a.html")
 ```
 
-> Care has been taken to assure that code presented in the gray shaded, code blocks, can be simply copy and pasted from the browser to the R Console for initial ease of this introduction. A better practice would be to place scripts such as these in a simple text file. In such a file the longer lines of code are viewed as a single line. Such script files can be saved with a .R (or .r) extension and will be recognized by the R console as a source script. Using the menu selection *File -> Source R code*. . . will load and run such scripts from the file system.
+```{block, type='rmdnote'}
+Care has been taken to assure that code presented in the gray shaded, code blocks, can be simply copy and pasted from the browser to the R Console for initial ease of this introduction. A better practice would be to place scripts such as these in a simple text file. In such a file the longer lines of code are viewed as a single line. Such script files can be saved with a .R (or .r) extension and will be recognized by the R console as a source script. Using the menu selection *File -> Source R code*. . . will load and run such scripts from the file system.
+```
+
  
 The NASA document is likely pointing out the logical thought put into the development of the tree. While using FaultTree on R only the OR gate can accept such single input in this way. This expansion takes up a lot of graphic space and makes the script more complex. Alternatively it would have been possible to simply place all three basic events under the single OR gate at the top event ID=1. This is left as a student exercise.
  

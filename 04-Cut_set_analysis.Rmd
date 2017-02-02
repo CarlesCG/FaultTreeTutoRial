@@ -1,6 +1,6 @@
-# Cut Set Analysis
+# Cut Set Analysis {#cut-set}
 
-```{r setup_basics, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 library(FaultTree)
 ```
@@ -13,10 +13,10 @@ Cut set analysis is widely performed to mitigate these risks in fault tree const
  
 Several algorithms have been identified for methodically identifying all cut sets in a fault tree and then reducing them to the minimal cut sets. The FaultTree package currently performs only one of the popular early algorithms referred to as Method for Obtaining CUt Sets (MOCUS). The source code is perhaps the best documentation of this algorithm for those interested in exploring this further. Since this is an open source effort all are encouraged to make this a study. For purposes of this discussion an example will be worked out to demonstrate the use.
  
-The chosen example has been obtained from Appendix B of Clifton Ericson’s “Fault Tree Analysis Primer” available for purchase at [Amazon - Fault Tree Analysis Primer, Clifton A Ericson ](https://www.amazon.com/Fault-Analysis-Primer-Clifton-Ericson/dp/1466446102)
+The chosen example has been obtained from *Appendix B* of Clifton Ericson’s **“Fault Tree Analysis Primer”** available for purchase at [Amazon - Fault Tree Analysis Primer, Clifton A Ericson ](https://www.amazon.com/Fault-Analysis-Primer-Clifton-Ericson/dp/1466446102)
 
 
-![](./www/04-Book_Fault_Tree_Analysis_Primer.jpg)
+<center> ![](./www/04-Book_Fault_Tree_Analysis_Primer.jpg) </center> 
 
 
 
@@ -107,7 +107,9 @@ lapply(pwr_cs, "[", c(1:7))
 
 This output is a list of matrices. The numerical order of the list items in double braces “[ [ # ] ]” indicates the order, or number of elements in the listed cut sets. Here there are no single order cut sets and no 4th order cut sets. The values shown in the matrices are node ID’s. Each row represents nodes combined by AND logic. For any duplicated nodes the ID is taken from the source of duplication. Here the actual output is truncated; however by scrolling through the output in the R Console it is quickly determined that there are 29 second order cut sets and 108 third order cut sets. This is good because it is exactly what Clifton Ericson also found.
 
-> At this point the packaged code has identified the minimal cut sets, but the output is not yet in most useful form. For the next few steps we are going to utilize the R environment to manipulate the output as desired. Since we know that tags have been provided for all basic events in this example, it would be nice to translate the cut set matrices to show tags. This kind of operation across an entire matrix is facilitated by an apply function in R. After each operation it is recommended to view the object created by typing just the object name and enter. This will confirm what is going on. For those particularly interested, get the help pages ?apply and ?which to gain understanding on how this works.
+```{block, type='rmdnote'}
+At this point the packaged code has identified the minimal cut sets, but the output is not yet in most useful form. For the next few steps we are going to utilize the R environment to manipulate the output as desired. Since we know that tags have been provided for all basic events in this example, it would be nice to translate the cut set matrices to show tags. This kind of operation across an entire matrix is facilitated by an apply function in R. After each operation it is recommended to view the object created by typing just the object name and enter. This will confirm what is going on. For those particularly interested, get the help pages ?apply and ?which to gain understanding on how this works.
+```
 
 To get the tags for each element of the cut sets enter the following code:
 ```{r}
@@ -128,7 +130,10 @@ cs_tags2<-cbind(cs_tags2, data.frame('prob'=apply(cs_probs2, 1, function(x) prod
 cs_tags3<-cbind(cs_tags3, data.frame('prob'=apply(cs_probs3, 1, function(x) prod(x))))
 ```
 
-> [R details – There is a bit of sleight-of-hand going on at this point. Since the cs_tags matrices contained all character entries, and we wish to add a numeric column we have to force the new cs_tags objects to be dataframes. Dataframes can hold different object types as long as the columns have consistent types within.]
+```{block, type='rmdnote'}
+R details – There is a bit of sleight-of-hand going on at this point. Since the cs_tags matrices contained all character entries, and we wish to add a numeric column we have to force the new cs_tags objects to be dataframes. Dataframes can hold different object types as long as the columns have consistent types within.
+```
+
 
 Now, it would be nice to combine these dataframes and order the cut sets according to probability (decreasing) and tag text values (increasing). First, a column of empty values (NA) must be added to cs_tags2 to give same number of rows as cs_tags3. Then the column names need to assigned as the same . Finally the two objects can be combined to one and sorted (ordered). Lastly, the rows are re-numbered for ascetics.
 
@@ -141,9 +146,12 @@ all_cs<-all_cs[order(-all_cs[,4],all_cs[,1], all_cs[,2], all_cs[,3],na.last=FALS
 row.names(all_cs)<-as.character(1:length(all_cs[,1]))
 ```
 
-The resulting ‘all_cs’ dataframe provides an importance view of all of the cut sets, since it ranks the probability of each distinct path to failure.
+The resulting `all_cs` dataframe provides an importance view of all of the cut sets, since it ranks the probability of each distinct path to failure.
 
-> To be honest the ftree.cutsets function should return such an importance view object automatically. This will require coding the steps detailed in this section into the FaultTree source. However there are still unanswered questions as to how so called, non-coherent, trees built on the repairable system model should be handled. Currently all specialty gates will be treated as AND combinations and effort is required to restore full description of each cut set. For now this is left for analyst interpretation using the R environment.
+```{block, type='rmdnote'}
+To be honest the ftree.cutsets function should return such an importance view object automatically. This will require coding the steps detailed in this section into the FaultTree source. However there are still unanswered questions as to how so called, non-coherent, trees built on the repairable system model should be handled. Currently all specialty gates will be treated as AND combinations and effort is required to restore full description of each cut set. For now this is left for analyst interpretation using the R environment.
+```
+
 
 Now, this example can be accurately calculated by taking the probabilistic sum of all unique, minimal cut set probabilities.
 

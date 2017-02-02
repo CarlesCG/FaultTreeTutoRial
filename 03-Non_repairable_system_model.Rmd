@@ -1,13 +1,13 @@
-# Non-Repairable System Models
+# Non-Repairable System Models {#non-repairable}
 
-```{r setup_basics, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval=TRUE)
 library(FaultTree)
 ```
 
 The genesis of fault tree analysis occurred during evaluation of the Minuteman Launch Control System. The technique progressed through the aerospace industry largely for aircraft, spacecraft and weapons safety studies. All of these models are characterized by a mission through which a system is expected to perform, without opportunity for repair. When quantified, the primary measure of interest is the probability of mission failure within a given duration. This, of course, is the complement of reliability, which is the probability of success over a stated time, under stated conditions.
  
-To explore this lesson an example found in Clifton Erickson’s course notes has been selected. This excellent review material can be downloaded at [www.thecourse-pm.com/Library/FaultTreeAnalysis2.pdf](www.thecourse-pm.com/Library/FaultTreeAnalysis2.pdf)
+To explore this lesson an example found in Clifton Erickson’s course notes has been selected. This excellent review material can be downloaded at [Fault Tree Analysis, Clifton A. Ericson II](www.thecourse-pm.com/Library/FaultTreeAnalysis2.pdf)
 
 ![](./www/03-Clifton_slides.jpg)
 
@@ -15,8 +15,7 @@ To explore this lesson an example found in Clifton Erickson’s course notes has
  
 The example to be built using the FaultTree package is found on slide 53. A simplified diagram for this example has been modified from a later more complex example in the same text. The undesired event in this case is inadvertent arming of the warhead. Presumably the exposure time starts when the battery is connected to the circuit.
 
-
-![](./www/03-ARM1.jpg)
+<center> ![](./www/03-ARM1.jpg) </center> 
 
 A recommended script is as follows:
 
@@ -39,7 +38,11 @@ As before this is calculated with:
 arm1<-ftree.calc(arm1)
 ```
 
-> [Notice that if you forget to make the assignment “arm1<-" the ftree.calc function proceeds and a calculated dataframe is returned for display. But that dataframe will not be persistent unless it is assigned to a variable label. Since the original uncalculated arm1 is no longer of interest after calculation, the new calculated dataframe is stored using the original object name.]  
+
+```{block, type='rmdimportant'}
+Notice that if you forget to make the assignment “arm1<-" the ftree.calc function proceeds and a calculated dataframe is returned for display. But that dataframe will not be persistent unless it is assigned to a variable label. Since the original uncalculated arm1 is no longer of interest after calculation, the new calculated dataframe is stored using the original object name.
+```
+
 
 And viewed with:
 ```{r}
