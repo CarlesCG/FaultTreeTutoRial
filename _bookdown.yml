@@ -1,6 +1,6 @@
 book_filename: FaultTree
 repo: https://github.com/CarlesCG/FaulttReeTutoRial
-output_dir: _book
+output_dir: docs
 language:
   label:
     fig: "FIGURE "
