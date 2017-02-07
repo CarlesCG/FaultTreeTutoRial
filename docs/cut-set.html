@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tutorial: FaultTree Package</title>
+  <meta name="description" content="Tutorial for the FaultTree package from www.openreliability.org">
+  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tutorial: FaultTree Package" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="www/cover.jpg" />
+  <meta property="og:description" content="Tutorial for the FaultTree package from www.openreliability.org" />
+  <meta name="github-repo" content="CarlesCG/FaulttReeTutoRial" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tutorial: FaultTree Package" />
+  
+  <meta name="twitter:description" content="Tutorial for the FaultTree package from www.openreliability.org" />
+  <meta name="twitter:image" content="www/cover.jpg" />
+
+<meta name="author" content="David J. Silkworth">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="non-repairable.html">
+<link rel="next" href="repairable.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FaultTree Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome To FaultTree Tutorial</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#getting-started-with-faulttree-on-r"><i class="fa fa-check"></i><b>1.1</b> Getting started with FaultTree on R</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#load-faultree-package"><i class="fa fa-check"></i><b>1.2</b> Load FaulTree package</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Fault Tree Basics</a></li>
+<li class="chapter" data-level="3" data-path="non-repairable.html"><a href="non-repairable.html"><i class="fa fa-check"></i><b>3</b> Non-Repairable System Models</a></li>
+<li class="chapter" data-level="4" data-path="cut-set.html"><a href="cut-set.html"><i class="fa fa-check"></i><b>4</b> Cut Set Analysis</a></li>
+<li class="chapter" data-level="5" data-path="repairable.html"><a href="repairable.html"><i class="fa fa-check"></i><b>5</b> Repairable System Models</a></li>
+<li class="chapter" data-level="6" data-path="latent-events.html"><a href="latent-events.html"><i class="fa fa-check"></i><b>6</b> Latent Component Events</a><ul>
+<li class="chapter" data-level="6.1" data-path="latent-events.html"><a href="latent-events.html#using-the-r-environment-to-alter-inspection-intervals"><i class="fa fa-check"></i><b>6.1</b> Using the R Environment to Alter Inspection Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-sequence.html"><a href="conditional-sequence.html"><i class="fa fa-check"></i><b>7</b> Conditional Sequence</a></li>
+<li class="divider"></li>
+<li><a href="http://www.openreliability.org" target="blank">Openreliability.org</a></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorial: FaultTree Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cut-set" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Cut Set Analysis</h1>
+<p>During the development of fault trees there are times when a basic event entry for the same component with the same failure mode appears in more than one position in the tree. This occurs so frequently that the term Multiply Occurring Event (MOE) is widely used. At times replication may involve an entire branch of a tree as a Multiply Occurring Branch (MOB), in which case all component events comprising the duplicated branch are MOE’s.</p>
+<p>Depending on the design of the fault tree structure, or when a team of participants works on the same large tree, MOE’s may be distributed under one or more AND gates. Such occurrences may hide the true significance of certain events, rendering inaccuracies when the tree is calculated on a bottom-up, gate-by-gate fashion as the ftree.calc function in FaultTree does.</p>
+<p>Cut set analysis is widely performed to mitigate these risks in fault tree construction. A cut set is a distinct path of failure leading to the top undesired event. Upon initial dissection of a fault tree many cut sets are typically identified, but not all are unique. Repeated combinations of events may also be found in cut sets having the same number of events combined by an AND operation. A process of reduction using the laws of Boolean algebra is then used to identify only the truly unique minimal cut sets.</p>
+<p>Several algorithms have been identified for methodically identifying all cut sets in a fault tree and then reducing them to the minimal cut sets. The FaultTree package currently performs only one of the popular early algorithms referred to as Method for Obtaining CUt Sets (MOCUS). The source code is perhaps the best documentation of this algorithm for those interested in exploring this further. Since this is an open source effort all are encouraged to make this a study. For purposes of this discussion an example will be worked out to demonstrate the use.</p>
+<p>The chosen example has been obtained from <em>Appendix B</em> of Clifton Ericson’s <strong>“Fault Tree Analysis Primer”</strong> available for purchase at <a href="https://www.amazon.com/Fault-Analysis-Primer-Clifton-Ericson/dp/1466446102">Amazon - Fault Tree Analysis Primer, Clifton A Ericson</a></p>
+<center>
+<img src="www/04-Book_Fault_Tree_Analysis_Primer.jpg" />
+</center>
+<p>Presume a hypothetical power generation system driven off of a dual engine aircraft. Each engine can drive either or both generators associated with it, although one on each wing is initially a stand-by. Two of the total four generators must operate to produce sufficient power. A computer on the aircraft is responsible for identifying failure of any running generator and switching to a stand-by so as to avoid power failure. The undesired event is insufficient power. This will occur if 3 out of 4 generators cannot produce power.</p>
+<div class="figure">
+<img src="www/04-generators.jpg" />
+
+</div>
+<p>As sometimes happens during group study a consensus (or simply the loudest or highest ranking voice in the room) may focus first on the 3 out of 4 generator combinations that would result in insufficient power. Then, the fault tree is completed by analyzing the causal flow of events for for failure of each generator output back-to-front. Resulting in a fault tree generated by the following script.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pwr&lt;-<span class="kw">ftree.make</span>(<span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;insufficient&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Electrical Power&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G1, G2, G3&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G1&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">3</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G1&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">3</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G1A&quot;</span>, <span class="dt">name=</span><span class="st">&quot;G1 Conn Open&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">4</span>, <span class="dt">prob=</span><span class="fl">1e-3</span>, <span class="dt">tag=</span><span class="st">&quot;G1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Generator G1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">4</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Input&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;To G1&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">7</span>, <span class="dt">prob=</span><span class="fl">1e-3</span>, <span class="dt">tag=</span><span class="st">&quot;E1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Engine E1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">7</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G1B&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Bleed Air To&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G1 Fails&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G2&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">10</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G2A&quot;</span>, <span class="dt">name=</span><span class="st">&quot;G2 Conn Open&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">10</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G2&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">12</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Input&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;To G2&quot;</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">13</span>, <span class="dt">dup_id=</span><span class="dv">8</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">13</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G2B&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Bleed Air To&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G2 Fails&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">12</span>, <span class="dt">prob=</span><span class="fl">1e-3</span>, <span class="dt">tag=</span><span class="st">&quot;G2&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Generator G2&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">12</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Switch To&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G2 Fails&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">17</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;M1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Monitor M1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">17</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;S1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Switching S1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G3&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">20</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G3&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">20</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G3A&quot;</span>, <span class="dt">name=</span><span class="st">&quot;G3 Conn Open&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">21</span>, <span class="dt">prob=</span><span class="fl">1e-3</span>, <span class="dt">tag=</span><span class="st">&quot;G3&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Generator G3&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">21</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Input&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;To G3&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">24</span>, <span class="dt">prob=</span><span class="fl">1e-3</span>, <span class="dt">tag=</span><span class="st">&quot;E2&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Engine E2&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">24</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G3B&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Bleed Air To&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G2 Fails&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G1, G2, G4&quot;</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">27</span>, <span class="dt">dup_id=</span><span class="dv">3</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">27</span>, <span class="dt">dup_id=</span><span class="dv">10</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">27</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G4&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">45</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G4A&quot;</span>, <span class="dt">name=</span><span class="st">&quot;G4 Conn Open&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">45</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From G4&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">47</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Input&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;To G4&quot;</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">48</span>, <span class="dt">dup_id=</span><span class="dv">25</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">48</span>, <span class="dt">prob=</span><span class="fl">1e-3</span>, <span class="dt">tag=</span><span class="st">&quot;G4&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Generator G4&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails&quot;</span>)
+pwr&lt;-<span class="kw">addProbability</span>(pwr, <span class="dt">at=</span><span class="dv">47</span>, <span class="dt">prob=</span><span class="fl">1e-4</span>, <span class="dt">tag=</span><span class="st">&quot;G4B&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Bleed Air To&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G4 Fails&quot;</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">47</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Switch To&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G4 Fails&quot;</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">52</span>, <span class="dt">dup_id=</span><span class="dv">18</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">52</span>, <span class="dt">dup_id=</span><span class="dv">19</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G1, G3, G4&quot;</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">55</span>, <span class="dt">dup_id=</span><span class="dv">3</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">55</span>, <span class="dt">dup_id=</span><span class="dv">20</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">55</span>, <span class="dt">dup_id=</span><span class="dv">45</span>)
+pwr&lt;-<span class="kw">addLogic</span>(pwr, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;No Output&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;G2, G3, G4&quot;</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">80</span>, <span class="dt">dup_id=</span><span class="dv">10</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">80</span>, <span class="dt">dup_id=</span><span class="dv">20</span>)
+pwr&lt;-<span class="kw">addDuplicate</span>( pwr, <span class="dt">at=</span><span class="dv">80</span>, <span class="dt">dup_id=</span><span class="dv">45</span>)</code></pre></div>
+<p>And viewed with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ftree2html</span>(pwr, <span class="dt">write_file=</span><span class="ot">TRUE</span>)
+<span class="kw">browseURL</span>(<span class="st">&quot;pwr.html&quot;</span>)</code></pre></div>
+<p>With a zoom out to 50% and some strategic node collapses of duplicated branches it is possible to contain the content of this tree in a single view. The FaultTree package does not currently support transfer gates.</p>
+<div class="figure">
+<img src="www/04-generatorshtml.jpg" />
+
+</div>
+<p>The script for this tree makes considerable use of the addDuplicate function, which does what is its name suggests. Both source and duplicated nodes are modified with magenta coloring for several attributes. For a source node an ‘S’ is placed at the upper left of the label box. An ‘R’ appears in this position for a repeated node. For repeated nodes the ID of the source is shown in the gate graphic rather than its actual node ID. This should not present a problem for identifying the placement of further nodes, since connections to sources or repeated nodes is not permitted once a duplication has been made.</p>
+<p>Probability values have been provided in this example, while none were listed in the book example. An order of magnitude was chosen to distinguish complex assemblies (engine or generator) from individual components (switches, valves, relays, etc.). It is trusted that all of these values are pessimistic, else no one would want to fly in aircraft. Calculation is not performed yet, as we wish to examine the cut set analysis first.</p>
+<p>The ftree.cutsets function will return the minimal cut sets for the named fault tree in a list of matrix objects. In addition to viewing this output it will be desirable to perform more manipulations. For this reason the output is assigned to an object name, ‘pwr_cs’ in this case. The command line is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pwr_cs&lt;-<span class="kw">cutsets</span>(pwr)</code></pre></div>
+<p>The result viewed by retyping the object name to which output was assigned looks something like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(pwr_cs, <span class="dt">n=</span><span class="dv">1</span>)
+<span class="kw">lapply</span>(pwr_cs, <span class="st">&quot;[&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">7</span>)) </code></pre></div>
+<div class="figure">
+<img src="www/04-pwr_cs1.jpg" />
+
+</div>
+<div class="figure">
+<img src="www/04-pwr2.jpg" />
+
+</div>
+<p>This output is a list of matrices. The numerical order of the list items in double braces “[ [ # ] ]” indicates the order, or number of elements in the listed cut sets. Here there are no single order cut sets and no 4th order cut sets. The values shown in the matrices are node ID’s. Each row represents nodes combined by AND logic. For any duplicated nodes the ID is taken from the source of duplication. Here the actual output is truncated; however by scrolling through the output in the R Console it is quickly determined that there are 29 second order cut sets and 108 third order cut sets. This is good because it is exactly what Clifton Ericson also found.</p>
+<div class="rmdnote">
+<p>
+At this point the packaged code has identified the minimal cut sets, but the output is not yet in most useful form. For the next few steps we are going to utilize the R environment to manipulate the output as desired. Since we know that tags have been provided for all basic events in this example, it would be nice to translate the cut set matrices to show tags. This kind of operation across an entire matrix is facilitated by an apply function in R. After each operation it is recommended to view the object created by typing just the object name and enter. This will confirm what is going on. For those particularly interested, get the help pages ?apply and ?which to gain understanding on how this works.
+</p>
+</div>
+<p>To get the tags for each element of the cut sets enter the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cs_tags2&lt;-<span class="kw">apply</span>(pwr_cs[[<span class="dv">2</span>]], <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),function(x) pwr$Tag[<span class="kw">which</span>(pwr$ID==x)])
+cs_tags3&lt;-<span class="kw">apply</span>(pwr_cs[[<span class="dv">3</span>]], <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),function(x) pwr$Tag[<span class="kw">which</span>(pwr$ID==x)])</code></pre></div>
+<p>Similarly, it would be handy to have the probability values for each of the elements of the cut sets.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cs_probs2&lt;-<span class="kw">apply</span>(pwr_cs[[<span class="dv">2</span>]], <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),function(x) pwr$PBF[<span class="kw">which</span>(pwr$ID==x)])
+cs_probs3&lt;-<span class="kw">apply</span>(pwr_cs[[<span class="dv">3</span>]], <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),function(x) pwr$PBF[<span class="kw">which</span>(pwr$ID==x)])</code></pre></div>
+<p>Since each row of the cut set represents a single probability resulting from the product of its elements, it is possible to build a probability column to add to the cut set tags now as a dataframe.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cs_tags2&lt;-<span class="kw">cbind</span>(cs_tags2, <span class="kw">data.frame</span>(<span class="st">&#39;prob&#39;</span>=<span class="kw">apply</span>(cs_probs2, <span class="dv">1</span>, function(x) <span class="kw">prod</span>(x))))
+cs_tags3&lt;-<span class="kw">cbind</span>(cs_tags3, <span class="kw">data.frame</span>(<span class="st">&#39;prob&#39;</span>=<span class="kw">apply</span>(cs_probs3, <span class="dv">1</span>, function(x) <span class="kw">prod</span>(x))))</code></pre></div>
+<div class="rmdnote">
+<p>
+R details – There is a bit of sleight-of-hand going on at this point. Since the cs_tags matrices contained all character entries, and we wish to add a numeric column we have to force the new cs_tags objects to be dataframes. Dataframes can hold different object types as long as the columns have consistent types within.
+</p>
+</div>
+<p>Now, it would be nice to combine these dataframes and order the cut sets according to probability (decreasing) and tag text values (increasing). First, a column of empty values (NA) must be added to cs_tags2 to give same number of rows as cs_tags3. Then the column names need to assigned as the same . Finally the two objects can be combined to one and sorted (ordered). Lastly, the rows are re-numbered for ascetics.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nas&lt;-<span class="kw">rep</span>(<span class="ot">NA</span>,<span class="kw">length</span>(cs_tags2[,<span class="dv">1</span>]))
+cs_tags2&lt;-<span class="kw">cbind</span>(nas,cs_tags2)
+<span class="kw">names</span>(cs_tags2)&lt;-<span class="kw">names</span>(cs_tags3)
+all_cs&lt;-<span class="kw">rbind</span>(cs_tags2, cs_tags3)
+all_cs&lt;-all_cs[<span class="kw">order</span>(-all_cs[,<span class="dv">4</span>],all_cs[,<span class="dv">1</span>], all_cs[,<span class="dv">2</span>], all_cs[,<span class="dv">3</span>],<span class="dt">na.last=</span><span class="ot">FALSE</span>), ]
+<span class="kw">row.names</span>(all_cs)&lt;-<span class="kw">as.character</span>(<span class="dv">1</span>:<span class="kw">length</span>(all_cs[,<span class="dv">1</span>]))</code></pre></div>
+<p>The resulting <code>all_cs</code> dataframe provides an importance view of all of the cut sets, since it ranks the probability of each distinct path to failure.</p>
+<div class="rmdnote">
+<p>
+To be honest the ftree.cutsets function should return such an importance view object automatically. This will require coding the steps detailed in this section into the FaultTree source. However there are still unanswered questions as to how so called, non-coherent, trees built on the repairable system model should be handled. Currently all specialty gates will be treated as AND combinations and effort is required to restore full description of each cut set. For now this is left for analyst interpretation using the R environment.
+</p>
+</div>
+<p>Now, this example can be accurately calculated by taking the probabilistic sum of all unique, minimal cut set probabilities.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>-<span class="kw">prod</span>(<span class="dv">1</span>-all_cs$prob)</code></pre></div>
+<pre><code>## [1] 6.686892e-06</code></pre>
+<p>The original fault tree can be calculated and viewed as in the past, or for a shortcut to the probability of the top event:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pwr &lt;-<span class="kw">ftree.calc</span>(pwr)
+pwr $PBF[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 4.847278e-08</code></pre>
+<p>What happened? Calculation of the example tree according to gate-by-gate calculations reveals a significant deviation!</p>
+<p>The original fault tree was constructed under the assumption that the generation of power was based purely on a 2 out of 4 redundancy of generators. Once initiated down this path the generation of second order events leading to the top event became unlikely. Clearly, if both engines fail there would be no means for generation of power. Likewise, if a single engine were to fail and one of the generators on the other side were to fail only one generator would remain available. Finally, if either engine or any operating generator were to fail there would be a dependency on the computer and switching systems to activate a stand-by. None of these cases were considered during construction of the original fault tree. It is almost magical that the cut set analysis is able to identify these events.</p>
+<p>The situation demonstrated by this example has lead some practitioners to eschew gate-by-gate calculation whatsoever. In reality it appears that fault tree practitioners should be aware of the risks and utilize cut set analysis to check their work. One could argue that the risk is due to inaccurate fault tree construction; however, cut set analysis is available to aid in checking such oversights and is invaluable for that purpose.</p>
+<p>It is left as a student exercise to build a more accurate fault tree based on the knowledge gained through cut set analysis. Start with a causal approach rather than functional.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="non-repairable.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="repairable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CarlesCG/FaulttReeTutoRial/edit/master/04-Cut_set_analysis.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

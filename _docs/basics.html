@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tutorial: FaultTree Package</title>
+  <meta name="description" content="Tutorial for the FaultTree package from www.openreliability.org">
+  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tutorial: FaultTree Package" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="www/cover.jpg" />
+  <meta property="og:description" content="Tutorial for the FaultTree package from www.openreliability.org" />
+  <meta name="github-repo" content="CarlesCG/FaulttReeTutoRial" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tutorial: FaultTree Package" />
+  
+  <meta name="twitter:description" content="Tutorial for the FaultTree package from www.openreliability.org" />
+  <meta name="twitter:image" content="www/cover.jpg" />
+
+<meta name="author" content="David J. Silkworth">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="non-repairable.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FaultTree Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome To FaultTree Tutorial</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#getting-started-with-faulttree-on-r"><i class="fa fa-check"></i><b>1.1</b> Getting started with FaultTree on R</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#load-faultree-package"><i class="fa fa-check"></i><b>1.2</b> Load FaulTree package</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Fault Tree Basics</a></li>
+<li class="chapter" data-level="3" data-path="non-repairable.html"><a href="non-repairable.html"><i class="fa fa-check"></i><b>3</b> Non-Repairable System Models</a></li>
+<li class="chapter" data-level="4" data-path="cut-set.html"><a href="cut-set.html"><i class="fa fa-check"></i><b>4</b> Cut Set Analysis</a></li>
+<li class="chapter" data-level="5" data-path="repairable.html"><a href="repairable.html"><i class="fa fa-check"></i><b>5</b> Repairable System Models</a></li>
+<li class="chapter" data-level="6" data-path="latent-events.html"><a href="latent-events.html"><i class="fa fa-check"></i><b>6</b> Latent Component Events</a><ul>
+<li class="chapter" data-level="6.1" data-path="latent-events.html"><a href="latent-events.html#using-the-r-environment-to-alter-inspection-intervals"><i class="fa fa-check"></i><b>6.1</b> Using the R Environment to Alter Inspection Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-sequence.html"><a href="conditional-sequence.html"><i class="fa fa-check"></i><b>7</b> Conditional Sequence</a></li>
+<li class="divider"></li>
+<li><a href="http://www.openreliability.org" target="blank">Openreliability.org</a></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorial: FaultTree Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basics" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Fault Tree Basics</h1>
+<p>This second introductory essay assumes the user has installed R and the FaultTree package. If this is not the case please refer to ‘Getting started with FaultTree on R’. This essay will examine a simple example in <em>Section 5.1 (page 55)</em> in <strong>‘Fault Tree Hand book with Aerospace Applications’</strong> published by <em>NASA</em>. This document is available <a href="http://www.hq.nasa.gov/office/codeq/doctree/fthb.pdf">for free download</a>.</p>
+<center>
+<img src="www/02-NASA_pdf_cover.jpg" />
+</center>
+<p>In this example we are encouraged to think of water flowing through two valves A and B. It could be more exciting to think of it as rocket fuel from Fuel Storage passing through pump A and valve B to a Rocket Engine.</p>
+<div class="figure">
+<img src="www/02-NASA5.1.jpg" />
+
+</div>
+<p>In the first instance we want to consider that the undesired event is ‘no flow to the Receiver’. This tree will be named ‘nasa1’ and the first line of our FaultTree script can be entered into the console as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa1&lt;-<span class="kw">ftree.make</span>(<span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;no flow to&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Receiver&quot;</span>)</code></pre></div>
+<p>Notice that the character combination ‘&lt;-’ forming a sort of arrow is an assignment operator in R. An equals sign ‘=’ would also work, but has not been used to distinguish it from argument assignment. This script line really hasn’t done much yet, but a fault tree object has been created, named ‘nasa1’, as a dataframe in R. A dataframe can be viewed by just typing its name at the &gt; prompt on the console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa1</code></pre></div>
+<pre><code>##   ID GParent CParent Level Type CFR PBF CRT MOE PHF_PZ Condition Cond_Code
+## 1  1      -1      -1     1   10  -1  -1  -1   0     -1         0         0
+##   Interval Tag_Obj       Name    Name2 Description Unused1 Unused2
+## 1       -1         no flow to Receiver</code></pre>
+<p>This is output from FaultTree version 0.0.12 and may change somewhat as development progresses to a substantial completion for CRAN release. The top event was created as an OR gate (type=”or”) because it is known that there will be two possible causes for lack of flow to the Receiver. Those causal events will be “no flow in Line 2” or “Component B blocks flow”. The existence of either event will result in no flow to Receiver.</p>
+<p>The dataframe has been generated with an ID of 1 to this top event by default. Negative-one (-1) values generally indicate no numeric value exists. The top gate has no parent node for either graphic display (GParent) nor calculation (CParent). The top event occupies Level 1 in the logical tree hierarchy. The OR gate type has been stored as a numeric value of 10. The name to be placed in the label box has been split to two lines using name and name2 arguments to the ftree.make function. Later fields of the dataframe will be discussed as progression is made to more complex models.</p>
+<p>One might ask, ‘how can one know how to enter arguments in the ftree.make function?’. R has a help system and developer’s are required to maintain manual pages for all exported functions on most repositories – particularly CRAN. To view the manual page for this or any function just precede the name of the function with a question mark in the R console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?ftree.make</code></pre></div>
+<p>This will load the help page in the default browser. In the case of ftree.make it can be seen that there are more arguments than were defined in our script. Function arguments are often pre-loaded with useful default values. Defaulted arguments do not need to be added to a script command. In a typical windows application one would expect the argument options to be presented in a dialogue window after some menu selection. Well, R is different.</p>
+<p>The next two script lines can be entered into the console as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa1&lt;-<span class="kw">addLogic</span>(nasa1, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;no flow in&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Line 2&quot;</span>)
+nasa1&lt;-<span class="kw">addProbability</span>(nasa1, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">prob=</span><span class="fl">0.1</span>, <span class="dt">name=</span><span class="st">&quot;Component B&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;blocks flow&quot;</span>)</code></pre></div>
+<p>After this we can view select columns of the dataframe by entering:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa1[,<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">8</span>,<span class="dv">15</span>,<span class="dv">16</span>)]</code></pre></div>
+<p>This will result in the following output:</p>
+<p>A number of things can be reviewed here.</p>
+<p>It can be observed that the addLogic function is very similar to the ftree.make function with the exception of a first argument that seemingly repeats the tree name and the ‘at’ argument. The first argument passes the tree dataframe object into the function so it can be modified. The output of the function will be the modified dataframe object. This is an example of functional programming. The ‘at’ argument specifies the parent ID.</p>
+<p>Basic component event entries such as addProbability each have sufficiently different argument lists, so they have been independently implemented for each type. It has been noted earlier that these two events are each capable of causing loss of flow to the Receiver, which is our top event. Both of these are connected at the top node which has an ID of 1. In the dataframe it can be noted that the probability value on the third entry has been recorded as PBF. Calculations have not yet been conducted upwards, and they can’t until all logic nodes have component entries below them. Only component event entries pass in data. Also note that the basic event holding only a probability of failure is stored as type 4.</p>
+<p>As a point of R usage the specification of columns to be displayed in the output table is prepared as a vector concatenating a range and two independently listed columns. If you just enter the c(1:8,15,16) definition at the R console prompt you will see:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">8</span>,<span class="dv">15</span>,<span class="dv">16</span>)</code></pre></div>
+<p>There is enough information here to generate a meaningful graphic display. In order to do this we execute the following two lines:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ftree2html</span>(nasa1, <span class="dt">write_file=</span><span class="ot">TRUE</span>) </code></pre></div>
+<pre><code>##   ID Parent Type CFR  PBF CRT Cond        Name       Name2
+## 1  1     -1   10  -1 -1.0  -1    0  no flow to    Receiver
+## 2  2      1   10  -1 -1.0  -1    0  no flow in      Line 2
+## 3  3      1    4  -1  0.1  -1    0 Component B blocks flow</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="st">&quot;nasa1.html&quot;</span>)</code></pre></div>
+<p>These graphic display lines can be executed many times as the tree is developed. The graphic view may be easier to interpret than the table view. As a free bit of information the ftree2html function also places a table view in the console. Notice that the ID value for the nodes is displayed in red font in the center of the graphic symbol. This is an extra help for determining the ‘at’ argument for subsequent event additions.</p>
+<p>The example tree can now be finalized with the addition of two more basic events:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa1&lt;-<span class="kw">addProbability</span>(nasa1, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.01</span>, <span class="dt">name=</span><span class="st">&quot;No Flow&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From Source&quot;</span>)
+nasa1&lt;-<span class="kw">addProbability</span>(nasa1, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.1</span>, <span class="dt">name=</span><span class="st">&quot;Component A&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;blocks flow&quot;</span>)</code></pre></div>
+<p>The tree can now be calculated because there are no empty gates. That is we have component entries for all logic gate nodes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa1&lt;-<span class="kw">ftree.calc</span>(nasa1)</code></pre></div>
+<p>Follow once again with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ftree2html</span>(nasa1, <span class="dt">write_file=</span><span class="ot">TRUE</span>) </code></pre></div>
+<pre><code>##   ID Parent Type CFR    PBF CRT Cond        Name       Name2
+## 1  1     -1   10  -1 0.1981  -1    0  no flow to    Receiver
+## 2  2      1   10  -1 0.1090  -1    0  no flow in      Line 2
+## 3  3      1    4  -1 0.1000  -1    0 Component B blocks flow
+## 4  4      2    4  -1 0.0100  -1    0     No Flow From Source
+## 5  5      2    4  -1 0.1000  -1    0 Component A blocks flow</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="st">&quot;nasa1.html&quot;</span>)</code></pre></div>
+<p>This is now a completed fault tree with quantification. The calculation for the OR gate sums its child entries. But, for probabilities this must be a probabilistic sum, since probabilities must always exist in the range less than one, greater than zero. The probabilistic sum performed at the OR gate at ID=2 is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>-(<span class="dv">1</span><span class="fl">-0.01</span>)*(<span class="dv">1</span><span class="fl">-0.1</span>)</code></pre></div>
+<pre><code>## [1] 0.109</code></pre>
+<p>Likewise the calculation performed in the top gate is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>-(<span class="dv">1</span><span class="fl">-0.109</span>)*(<span class="dv">1</span><span class="fl">-0.1</span>)</code></pre></div>
+<pre><code>## [1] 0.1981</code></pre>
+<p>It may be bothersome to some that I ignored the nodes with empty label boxes indicating “no flow in Line 3” and ‘no flow from source’ . The FaultTree package does not support the use of such empty nodes. Although this is not a recommended practice, it is possible to enter these as OR gates. The following script accomplishes this. Copy and paste all 10 lines of this script into the R console at once:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa1a&lt;-<span class="kw">ftree.make</span>(<span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;no flow to&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Receiver&quot;</span>)
+nasa1a&lt;-<span class="kw">addLogic</span>(nasa1a, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;no flow in&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Line 3&quot;</span>)
+nasa1a&lt;-<span class="kw">addLogic</span>(nasa1a, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;no flow in&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Line 2&quot;</span>)
+nasa1a&lt;-<span class="kw">addProbability</span>(nasa1a, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.1</span>, <span class="dt">name=</span><span class="st">&quot;Component B&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;blocks flow&quot;</span>)
+nasa1a&lt;-<span class="kw">addLogic</span>(nasa1a, <span class="dt">at=</span><span class="dv">3</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;no flow in&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Line 1&quot;</span>)
+nasa1a&lt;-<span class="kw">addProbability</span>(nasa1a, <span class="dt">at=</span><span class="dv">3</span>, <span class="dt">prob=</span><span class="fl">0.1</span>, <span class="dt">name=</span><span class="st">&quot;Component A&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;blocks flow&quot;</span>)
+nasa1a&lt;-<span class="kw">addProbability</span>(nasa1a, <span class="dt">at=</span><span class="dv">5</span>, <span class="dt">prob=</span><span class="fl">0.01</span>, <span class="dt">name=</span><span class="st">&quot;No Flow&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From Source&quot;</span>)
+nasa1a&lt;-<span class="kw">ftree.calc</span>(nasa1a)
+<span class="kw">ftree2html</span>(nasa1a, <span class="dt">write_file=</span><span class="ot">TRUE</span>) </code></pre></div>
+<pre><code>##   ID Parent Type CFR    PBF CRT Cond        Name       Name2
+## 1  1     -1   10  -1 0.1981  -1    0  no flow to    Receiver
+## 2  2      1   10  -1 0.1981  -1    0  no flow in      Line 3
+## 3  3      2   10  -1 0.1090  -1    0  no flow in      Line 2
+## 4  4      2    4  -1 0.1000  -1    0 Component B blocks flow
+## 5  5      3   10  -1 0.0100  -1    0  no flow in      Line 1
+## 6  6      3    4  -1 0.1000  -1    0 Component A blocks flow
+## 7  7      5    4  -1 0.0100  -1    0     No Flow From Source</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="st">&quot;nasa1a.html&quot;</span>)</code></pre></div>
+<div class="rmdnote">
+<p>
+Care has been taken to assure that code presented in the gray shaded, code blocks, can be simply copy and pasted from the browser to the R Console for initial ease of this introduction. A better practice would be to place scripts such as these in a simple text file. In such a file the longer lines of code are viewed as a single line. Such script files can be saved with a .R (or .r) extension and will be recognized by the R console as a source script. Using the menu selection <em>File -&gt; Source R code</em>. . . will load and run such scripts from the file system.
+</p>
+</div>
+<p>The NASA document is likely pointing out the logical thought put into the development of the tree. While using FaultTree on R only the OR gate can accept such single input in this way. This expansion takes up a lot of graphic space and makes the script more complex. Alternatively it would have been possible to simply place all three basic events under the single OR gate at the top event ID=1. This is left as a student exercise.</p>
+<p>Continuing the text example we will now consider the case where isolation of flow is expected and the undesired top failure event is worded as “Inadvertent flow to Receiver”. This change in context results in the creation of AND gates in place of the OR gates created in nasa1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa2&lt;-<span class="kw">ftree.make</span>(<span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Inadvertent flow&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;to Receiver&quot;</span>)
+nasa2&lt;-<span class="kw">addLogic</span>(nasa2, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Inadvertent flow&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;in Line 2&quot;</span>)
+nasa2&lt;-<span class="kw">addProbability</span>(nasa2, <span class="dt">at=</span><span class="dv">1</span>, <span class="dt">prob=</span><span class="fl">0.1</span>, <span class="dt">name=</span><span class="st">&quot;Component B&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;passes flow&quot;</span>)
+nasa2&lt;-<span class="kw">addProbability</span>(nasa2, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.01</span>, <span class="dt">name=</span><span class="st">&quot;Inadvertent flow&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From Source&quot;</span>)
+nasa2&lt;-<span class="kw">addProbability</span>(nasa2, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.1</span>, <span class="dt">name=</span><span class="st">&quot;Component A&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;passes flow&quot;</span>)
+nasa2&lt;-<span class="kw">ftree.calc</span>(nasa2)
+<span class="kw">ftree2html</span>(nasa2, <span class="dt">write_file=</span><span class="ot">TRUE</span>) </code></pre></div>
+<pre><code>##   ID Parent Type CFR   PBF CRT Cond             Name       Name2
+## 1  1     -1   11  -1 1e-04  -1    0 Inadvertent flow to Receiver
+## 2  2      1   11  -1 1e-03  -1    0 Inadvertent flow   in Line 2
+## 3  3      1    4  -1 1e-01  -1    0      Component B passes flow
+## 4  4      2    4  -1 1e-02  -1    0 Inadvertent flow From Source
+## 5  5      2    4  -1 1e-01  -1    0      Component A passes flow</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="st">&quot;nasa2.html&quot;</span>)</code></pre></div>
+<p>In this example the same input probability values have been used for the basic component events, however since these represent different failure modes one would expect that real data would reflect differences in some of these inputs. The calculation at the AND gate is a simple multiplication of the probability inputs. The power of redundancy can be seen in this case assuming that Components A and B were installed to guard against inadvertent flow to the Receiver. This might have been more evident had we assumed that flow is normally expected to be available from the Source such that the fourth line of the above script were to be:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nasa2&lt;-<span class="kw">addProbability</span>(nasa2, <span class="dt">at=</span><span class="dv">2</span>, <span class="dt">prob=</span><span class="fl">0.99</span>, <span class="dt">name=</span><span class="st">&quot;Flow Available&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;From Source&quot;</span>)</code></pre></div>
+<p>Many fault trees have been built using only probability inputs with combinations of OR and AND gates as have been demonstrated here. In fact, most demonstrations found on the web would suggest that this is all there is to FTA. But we are just getting started.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="non-repairable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CarlesCG/FaulttReeTutoRial/edit/master/02-Fault_Tree_Basics.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

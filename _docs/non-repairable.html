@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tutorial: FaultTree Package</title>
+  <meta name="description" content="Tutorial for the FaultTree package from www.openreliability.org">
+  <meta name="generator" content="bookdown 0.3.8 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tutorial: FaultTree Package" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="www/cover.jpg" />
+  <meta property="og:description" content="Tutorial for the FaultTree package from www.openreliability.org" />
+  <meta name="github-repo" content="CarlesCG/FaulttReeTutoRial" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tutorial: FaultTree Package" />
+  
+  <meta name="twitter:description" content="Tutorial for the FaultTree package from www.openreliability.org" />
+  <meta name="twitter:image" content="www/cover.jpg" />
+
+<meta name="author" content="David J. Silkworth">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="basics.html">
+<link rel="next" href="cut-set.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">FaultTree Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome To FaultTree Tutorial</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#getting-started-with-faulttree-on-r"><i class="fa fa-check"></i><b>1.1</b> Getting started with FaultTree on R</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#load-faultree-package"><i class="fa fa-check"></i><b>1.2</b> Load FaulTree package</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Fault Tree Basics</a></li>
+<li class="chapter" data-level="3" data-path="non-repairable.html"><a href="non-repairable.html"><i class="fa fa-check"></i><b>3</b> Non-Repairable System Models</a></li>
+<li class="chapter" data-level="4" data-path="cut-set.html"><a href="cut-set.html"><i class="fa fa-check"></i><b>4</b> Cut Set Analysis</a></li>
+<li class="chapter" data-level="5" data-path="repairable.html"><a href="repairable.html"><i class="fa fa-check"></i><b>5</b> Repairable System Models</a></li>
+<li class="chapter" data-level="6" data-path="latent-events.html"><a href="latent-events.html"><i class="fa fa-check"></i><b>6</b> Latent Component Events</a><ul>
+<li class="chapter" data-level="6.1" data-path="latent-events.html"><a href="latent-events.html#using-the-r-environment-to-alter-inspection-intervals"><i class="fa fa-check"></i><b>6.1</b> Using the R Environment to Alter Inspection Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-sequence.html"><a href="conditional-sequence.html"><i class="fa fa-check"></i><b>7</b> Conditional Sequence</a></li>
+<li class="divider"></li>
+<li><a href="http://www.openreliability.org" target="blank">Openreliability.org</a></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorial: FaultTree Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="non-repairable" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Non-Repairable System Models</h1>
+<p>The genesis of fault tree analysis occurred during evaluation of the Minuteman Launch Control System. The technique progressed through the aerospace industry largely for aircraft, spacecraft and weapons safety studies. All of these models are characterized by a mission through which a system is expected to perform, without opportunity for repair. When quantified, the primary measure of interest is the probability of mission failure within a given duration. This, of course, is the complement of reliability, which is the probability of success over a stated time, under stated conditions.</p>
+<p>To explore this lesson an example found in Clifton Erickson’s course notes has been selected. This excellent review material can be downloaded at <a href="www.thecourse-pm.com/Library/FaultTreeAnalysis2.pdf">Fault Tree Analysis, Clifton A. Ericson II</a></p>
+<div class="figure">
+<img src="www/03-Clifton_slides.jpg" />
+
+</div>
+<p>The example to be built using the FaultTree package is found on slide 53. A simplified diagram for this example has been modified from a later more complex example in the same text. The undesired event in this case is inadvertent arming of the warhead. Presumably the exposure time starts when the battery is connected to the circuit.</p>
+<center>
+<img src="www/03-ARM1.jpg" />
+</center>
+<p>A recommended script is as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arm1&lt;-<span class="kw">ftree.make</span>(<span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Warhead Armed&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Inadvertently&quot;</span>)
+arm1&lt;-<span class="kw">addLogic</span>(arm1, <span class="dt">at=</span> <span class="dv">1</span> , <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Circuit&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Relays Closed&quot;</span>)
+arm1&lt;-<span class="kw">addExposed</span>(arm1, <span class="dt">at=</span> <span class="dv">2</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span><span class="dv">10</span>, <span class="dt">tag=</span><span class="st">&quot;E1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Relay 1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails Closed&quot;</span>)
+arm1&lt;-<span class="kw">addExposed</span>(arm1, <span class="dt">at=</span> <span class="dv">2</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span><span class="dv">10</span>, <span class="dt">tag=</span><span class="st">&quot;E2&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Relay 1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails Closed&quot;</span>)
+arm1&lt;-<span class="kw">addLogic</span>(arm1, <span class="dt">at=</span> <span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;inhibit&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Is Present&quot;</span>)
+arm1&lt;-<span class="kw">addProbability</span>(arm1, <span class="dt">at=</span> <span class="dv">5</span>, <span class="dt">prob=</span><span class="dv">1</span>, <span class="dt">tag=</span><span class="st">&quot;W1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Battery Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Is Available&quot;</span>)
+arm1&lt;-<span class="kw">addLogic</span>(arm1, <span class="dt">at=</span> <span class="dv">5</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Circuit Closed&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;By Computer&quot;</span>)
+arm1&lt;-<span class="kw">addExposed</span>(arm1, <span class="dt">at=</span> <span class="dv">7</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span><span class="dv">10</span>, <span class="dt">tag=</span><span class="st">&quot;E3&quot;</span>, <span class="dt">name=</span><span class="st">&quot;CPU&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Failure&quot;</span>)
+arm1&lt;-<span class="kw">addExposed</span>(arm1, <span class="dt">at=</span> <span class="dv">7</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span><span class="dv">10</span>, <span class="dt">tag=</span><span class="st">&quot;E4&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Software&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Failure&quot;</span>)</code></pre></div>
+<p>As before this is calculated with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arm1&lt;-<span class="kw">ftree.calc</span>(arm1)</code></pre></div>
+<div class="rmdimportant">
+<p>
+Notice that if you forget to make the assignment “arm1&lt;-” the ftree.calc function proceeds and a calculated dataframe is returned for display. But that dataframe will not be persistent unless it is assigned to a variable label. Since the original uncalculated arm1 is no longer of interest after calculation, the new calculated dataframe is stored using the original object name.
+</p>
+</div>
+<p>And viewed with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ftree2html</span>(arm1, <span class="dt">write_file=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##   ID Parent Type      CFR          PBF CRT Cond               Name
+## 1  1     -1   10 -1.0e+00 2.199988e-05  -1    0      Warhead Armed
+## 2  2      1   11 -1.0e+00 1.209987e-10  -1    0        Arm Circuit
+## 3  3      2    5  1.1e-06 1.099994e-05  -1    0            Relay 1
+## 4  4      2    5  1.1e-06 1.099994e-05  -1    0            Relay 1
+## 5  5      1   12 -1.0e+00 2.199976e-05  -1    0          Arm Power
+## 6  6      5    4 -1.0e+00 1.000000e+00  -1    1      Battery Power
+## 7  7      5   10 -1.0e+00 2.199976e-05  -1    0 Arm Circuit Closed
+## 8  8      7    5  1.1e-06 1.099994e-05  -1    0                CPU
+## 9  9      7    5  1.1e-06 1.099994e-05  -1    0           Software
+##           Name2
+## 1 Inadvertently
+## 2 Relays Closed
+## 3  Fails Closed
+## 4  Fails Closed
+## 5    Is Present
+## 6  Is Available
+## 7   By Computer
+## 8       Failure
+## 9       Failure</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="st">&quot;arm1.html&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="www/03-arm1html.jpg" />
+
+</div>
+<p>There are a number of issues to point out here. First, the data for the basic component events is added to the tree using an addExposed function. The two pieces of quantification data are entered as mttf (consistent with other FaultTree addXxx functions) and exposure [time]. The Greek letter lambda is characteristically used to represent failure rate. The reciprocal of failure rate is the mean time to failure. Entries to function arguments in R can be an expression that returns the desired result. For clarity in what is being done mttf is entered as the reciprocal of the listed lambda. All entered units must be on the same basis. That is, the mean time to failure for all components in this example is on the order of 1 million hours (~100 years) and the exposure time for this mission is 10 hours.</p>
+<p>ID values are central to identification of all nodes when using FaultTree. A tag attribute provides a means of naming the component event entries and condition entries at the leaves of the tree. Tags may be more human identifiable combinations of letters and numbers that characterize the elements, and they are displayed above and to the right of the label box.</p>
+<p>While basic components have a resultant probability value ( the probability of failure), in this example “Battery Power is Available” represents a condition. Conditions are also quantified by a probability value. Obviously this condition probability does not represent failure; a clear distinction between the basic component events and this condition. Clifton Erickson’s course tutorial has placed this particular condition in a “house” graphic node. This is identifies a “condition present” and the condition value should be limited to 1. The house graphic has not been implemented in the FaultTree package as a matter of preference . Here a distinction for the condition entry is provided by using an INHIBIT gate. Note that the quantification is the same, whether an AND gate is used or the INHIBIT. For the non-repairable system model the use of INHIBIT for condition entries is purely a means of graphical distinction. The first entry to an INHIBIT gate will be taken as the condition by default, so ordering of the addXxx function lines in the FaultTree script can be significant.</p>
+<p>Since R allows assignment of function arguments using expressions that return a desired object, the example script can be rewritten to permit easy changing of all the mission exposure time values at once.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">warhead_exposure&lt;-<span class="dv">10</span>
+ 
+arm2&lt;-<span class="kw">ftree.make</span>(<span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Warhead Armed&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Inadvertently&quot;</span>)
+arm2&lt;-<span class="kw">addLogic</span>(arm2, <span class="dt">at=</span> <span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Circuit&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Relays Closed&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">2</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Relay 1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails Closed&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">2</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E2&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Relay 2&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails Closed&quot;</span>)
+arm2&lt;-<span class="kw">addLogic</span>(arm2, <span class="dt">at=</span> <span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;inhibit&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Is Present&quot;</span>)
+arm2&lt;-<span class="kw">addProbability</span>(arm2, <span class="dt">at=</span> <span class="dv">5</span>, <span class="dt">prob=</span><span class="dv">1</span>, <span class="dt">tag=</span><span class="st">&quot;W1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Battery Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Is Available&quot;</span>)
+arm2&lt;-<span class="kw">addLogic</span>(arm2, <span class="dt">at=</span> <span class="dv">5</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Circuit Closed&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;By Computer&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">7</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E3&quot;</span>, <span class="dt">name=</span><span class="st">&quot;CPU&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Failure&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">7</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E4&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Software&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Failure&quot;</span>)</code></pre></div>
+<p>The script above produces a tree that is no different than arm1. However, now warhead_exposure values can be changed to permit a study of the effect of mission time on the probability of the undesired event. Since we are running in the R environment the tree construction and calculation are performed programmatically. It is possible to program a loop collecting the outcome of interest from multiple tree calculations in a separate dataframe, like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TimeStudy&lt;-<span class="kw">data.frame</span>(<span class="dt">Exposure_Time=</span><span class="ot">NULL</span>, <span class="dt">Prob_of_Failure=</span><span class="ot">NULL</span>)
+for(power in <span class="dv">0</span>:<span class="dv">7</span>) {
+warhead_exposure&lt;-<span class="dv">10</span>^power
+arm2&lt;-<span class="kw">ftree.make</span>(<span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Warhead Armed&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Inadvertently&quot;</span>)
+arm2&lt;-<span class="kw">addLogic</span>(arm2, <span class="dt">at=</span> <span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;and&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Circuit&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Relays Closed&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">2</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Relay 1&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails Closed&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">2</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E2&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Relay 2&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Fails Closed&quot;</span>)
+arm2&lt;-<span class="kw">addLogic</span>(arm2, <span class="dt">at=</span> <span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;inhibit&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Is Present&quot;</span>)
+arm2&lt;-<span class="kw">addProbability</span>(arm2, <span class="dt">at=</span> <span class="dv">5</span>, <span class="dt">prob=</span><span class="dv">1</span>, <span class="dt">tag=</span><span class="st">&quot;W1&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Battery Power&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Is Available&quot;</span>)
+arm2&lt;-<span class="kw">addLogic</span>(arm2, <span class="dt">at=</span> <span class="dv">5</span>, <span class="dt">type=</span><span class="st">&quot;or&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Arm Circuit Closed&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;By Computer&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">7</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E3&quot;</span>, <span class="dt">name=</span><span class="st">&quot;CPU&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Failure&quot;</span>)
+arm2&lt;-<span class="kw">addExposed</span>(arm2, <span class="dt">at=</span> <span class="dv">7</span>, <span class="dt">mttf=</span><span class="dv">1</span>/<span class="fl">1.1e-6</span>, <span class="dt">exposure=</span>warhead_exposure, <span class="dt">tag=</span><span class="st">&quot;E4&quot;</span>, <span class="dt">name=</span><span class="st">&quot;Software&quot;</span>, <span class="dt">name2=</span><span class="st">&quot;Failure&quot;</span>)
+arm2&lt;-<span class="kw">ftree.calc</span>(arm2)
+study_row&lt;-<span class="kw">data.frame</span>(<span class="dt">Exposure_Time=</span>warhead_exposure, <span class="dt">Prob_of_Failure=</span>arm2$PBF[<span class="dv">1</span>])
+TimeStudy&lt;-<span class="kw">rbind</span>(TimeStudy, study_row)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TimeStudy</code></pre></div>
+<pre><code>##   Exposure_Time Prob_of_Failure
+## 1         1e+00    2.199999e-06
+## 2         1e+01    2.199988e-05
+## 3         1e+02    2.199879e-04
+## 4         1e+03    2.198788e-03
+## 5         1e+04    2.187684e-02
+## 6         1e+05    2.061890e-01
+## 7         1e+06    9.385110e-01
+## 8         1e+07    1.000000e+00</code></pre>
+<p>By changing the range “0:7” for the power value in the for loop to “seq(0,7, by=.1)” a plot can be generated with a fairly smoothed line curve.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(TimeStudy, <span class="dt">log=</span><span class="st">&quot;x&quot;</span>, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</code></pre></div>
+<p><img src="FaultTree_files/figure-html/unnamed-chunk-36-1.png" width="672" style="display: block; margin: auto;" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cut-set.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CarlesCG/FaulttReeTutoRial/edit/master/03-Non_repairable_system_model.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
