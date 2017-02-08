@@ -7,7 +7,7 @@ library(FaultTree)
 
 The genesis of fault tree analysis occurred during evaluation of the Minuteman Launch Control System. The technique progressed through the aerospace industry largely for aircraft, spacecraft and weapons safety studies. All of these models are characterized by a mission through which a system is expected to perform, without opportunity for repair. When quantified, the primary measure of interest is the probability of mission failure within a given duration. This, of course, is the complement of reliability, which is the probability of success over a stated time, under stated conditions.
  
-To explore this lesson an example found in Clifton Erickson’s course notes has been selected. This excellent review material can be downloaded at [Fault Tree Analysis, Clifton A. Ericson II](www.thecourse-pm.com/Library/FaultTreeAnalysis2.pdf)
+To explore this lesson an example found in Clifton Erickson’s course notes has been selected. This excellent review material can be downloaded at [Fault Tree Analysis, Clifton A. Ericson II](http://www.thecourse-pm.com/Library/FaultTreeAnalysis2.pdf)
 
 ![](./www/03-Clifton_slides.jpg)
 
